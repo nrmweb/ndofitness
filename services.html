@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Services — NDO Fitness</title>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:60px;}
+.service-card{background:var(--bg);padding:44px 36px;position:relative;overflow:hidden;transition:background 0.25s;}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--orange);transform:scaleX(0);transition:transform 0.3s;transform-origin:left;}
+.service-card:hover{background:var(--bg2);}
+.service-card:hover::before{transform:scaleX(1);}
+.service-num{font-family:var(--font-mono);font-size:11px;color:var(--muted2);letter-spacing:2px;margin-bottom:24px;}
+.svc-icon{width:52px;height:52px;background:var(--orange-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;}
+.service-name{font-family:var(--font-display);font-size:32px;color:var(--text);margin-bottom:14px;}
+.service-desc{font-size:14px;color:var(--muted);line-height:1.8;font-weight:300;margin-bottom:20px;}
+.service-includes{margin-top:20px;padding-top:20px;border-top:1px solid var(--border);}
+.service-includes-title{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted2);font-family:var(--font-mono);margin-bottom:12px;}
+.service-includes ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.service-includes li{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:10px;}
+.service-includes li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--orange);flex-shrink:0;}
+.service-price{margin-top:24px;padding-top:20px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.price-num{font-family:var(--font-display);font-size:36px;color:var(--orange);}
+.price-label{font-size:12px;color:var(--muted);font-family:var(--font-mono);}
+.book-btn{background:var(--orange);color:#fff;padding:10px 20px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none;transition:background 0.2s;}
+.book-btn:hover{background:var(--orange-dim);}
+@media(max-width:900px){.services-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.services-grid{grid-template-columns:1fr;}}
+.pricing-section{background:var(--bg2);border-top:1px solid var(--border);}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:50px;}
+.pricing-card{background:#fff;border:1.5px solid var(--border);border-radius:8px;padding:32px;transition:border-color 0.2s;}
+.pricing-card.featured{border-color:var(--orange);}
+.pricing-badge{background:var(--orange);color:#fff;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:2px;font-family:var(--font-mono);display:inline-block;margin-bottom:20px;}
+.pricing-name{font-family:var(--font-display);font-size:28px;margin-bottom:8px;}
+.pricing-desc{font-size:14px;color:var(--muted);margin-bottom:24px;font-weight:300;}
+.pricing-price{font-family:var(--font-display);font-size:52px;color:var(--text);line-height:1;margin-bottom:4px;}
+.pricing-price span{font-size:16px;font-family:var(--font-body);color:var(--muted);font-weight:300;}
+.pricing-per{font-size:12px;color:var(--muted2);font-family:var(--font-mono);margin-bottom:28px;}
+.pricing-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+.pricing-features li{font-size:14px;color:var(--muted);display:flex;align-items:center;gap:10px;}
+.pricing-features li svg{flex-shrink:0;}
+.pricing-cta{display:block;text-align:center;padding:12px;border-radius:4px;font-size:14px;font-weight:600;text-decoration:none;transition:all 0.2s;border:1.5px solid var(--border2);color:var(--text);}
+.pricing-cta:hover,.pricing-card.featured .pricing-cta{background:var(--orange);border-color:var(--orange);color:#fff;}
+@media(max-width:768px){.pricing-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<div class="page-hero">
+  <div class="page-hero-eyebrow">What We Offer</div>
+  <h1 class="page-hero-title">Our <span>Services.</span></h1>
+  <p class="page-hero-sub">Every program at NDO Fitness is built around one goal — developing athletes who are confident, skilled, and ready to compete at any level.</p>
+</div>
+
+<section>
+  <div class="section-label">Training Options</div>
+  <h2 class="section-title">Built for every<br>athlete.</h2>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="svc-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93c4.04 4.04 10.18 10.18 14.14 14.14M19.07 4.93C15.03 8.97 8.97 15.03 4.93 19.07M2 12h20M12 2v20"/></svg></div>
+      <div class="service-name">Individual Training</div>
+      <p class="service-desc">The most direct path to improvement. One-on-one sessions with Coach Chaz give you undivided attention, real-time feedback, and a training plan built entirely around your game.</p>
+      <div class="service-includes">
+        <div class="service-includes-title">Includes</div>
+        <ul>
+          <li>Personal assessment & game plan</li>
+          <li>Ball handling & shooting mechanics</li>
+          <li>Footwork & athleticism drills</li>
+          <li>Progress tracking each session</li>
+          <li>Post-session feedback notes</li>
+        </ul>
+      </div>
+      <div class="service-price">
+        <div><div class="price-num">$85</div><div class="price-label">per 60-min session</div></div>
+        <a href="book.html" class="book-btn">Book Now</a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="svc-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="service-name">Small Group Training</div>
+      <p class="service-desc">Train with 2–4 athletes at a similar skill level. The group environment builds competition, communication, and chemistry — all while keeping sessions structured and coach-led.</p>
+      <div class="service-includes">
+        <div class="service-includes-title">Includes</div>
+        <ul>
+          <li>2–4 athletes per session</li>
+          <li>Competitive drills & live reps</li>
+          <li>Skill-specific group exercises</li>
+          <li>Team communication work</li>
+          <li>75-minute structured session</li>
+        </ul>
+      </div>
+      <div class="service-price">
+        <div><div class="price-num">$55</div><div class="price-label">per athlete / 75 min</div></div>
+        <a href="book.html" class="book-btn">Book Now</a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="svc-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></div>
+      <div class="service-name">Skills Programs</div>
+      <p class="service-desc">6-week progressive programs for ages 3–16. Each program builds on the last, introducing new fundamentals each week in a structured, supportive environment.</p>
+      <div class="service-includes">
+        <div class="service-includes-title">Includes</div>
+        <ul>
+          <li>U10, U13, U16 & Mini Ballers tracks</li>
+          <li>Weekly progressive curriculum</li>
+          <li>6 weeks of structured sessions</li>
+          <li>Age-grouped training</li>
+          <li>End-of-program showcase</li>
+        </ul>
+      </div>
+      <div class="service-price">
+        <div><div class="price-num">$180</div><div class="price-label">starting / 6-week program</div></div>
+        <a href="programs.html" class="book-btn">View Programs</a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="svc-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
+      <div class="service-name">Birthday Parties</div>
+      <p class="service-desc">Make it a birthday they'll never forget. Choose from our Basic or Premium packages — both include exclusive use of the facility and a Coach-led session tailored to the group.</p>
+      <div class="service-includes">
+        <div class="service-includes-title">Premium includes</div>
+        <ul>
+          <li>Private facility for 90 minutes</li>
+          <li>Personal session with Coach Chaz</li>
+          <li>Refreshments for all guests</li>
+          <li>Birthday gift for the athlete</li>
+          <li>Photo-worthy NDO setup</li>
+        </ul>
+      </div>
+      <div class="service-price">
+        <div><div class="price-num">$180</div><div class="price-label">basic · from $280 premium</div></div>
+        <a href="book.html" class="book-btn">Book Now</a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <div class="svc-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
+      <div class="service-name">Gym Rentals</div>
+      <p class="service-desc">Nova Scotia's first private basketball facility is available to rent by the hour. Ideal for independent trainers, club teams, community groups, and corporate events.</p>
+      <div class="service-includes">
+        <div class="service-includes-title">Includes</div>
+        <ul>
+          <li>Full basketball court access</li>
+          <li>Exclusive pickleball court</li>
+          <li>Bring your own trainer or team</li>
+          <li>Flexible scheduling</li>
+          <li>Clean, private facility</li>
+        </ul>
+      </div>
+      <div class="service-price">
+        <div><div class="price-num">$120</div><div class="price-label">per hour</div></div>
+        <a href="book.html" class="book-btn">Book Now</a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <div class="svc-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div>
+      <div class="service-name">Summer Camps</div>
+      <p class="service-desc">Full-day and multi-day summer camps for youth athletes. Structured mornings, competitive afternoons, and a love for the game built in every session.</p>
+      <div class="service-includes">
+        <div class="service-includes-title">Includes</div>
+        <ul>
+          <li>Multi-day camp formats</li>
+          <li>Morning skills + afternoon games</li>
+          <li>Age-grouped sessions</li>
+          <li>Snack breaks included</li>
+          <li>Camp certificate & merch</li>
+        </ul>
+      </div>
+      <div class="service-price">
+        <div><div class="price-num">$299</div><div class="price-label">per 5-day camp</div></div>
+        <a href="programs.html" class="book-btn">Register</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="pricing-section">
+  <div class="section-label">Team Training</div>
+  <h2 class="section-title">Train your<br>whole team.</h2>
+  <p class="section-sub">Special packages available for club teams, school programs, and organized leagues looking to book recurring sessions.</p>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pricing-name">Starter Pack</div>
+      <p class="pricing-desc">Perfect for trying out team training at NDO.</p>
+      <div class="pricing-price">$320<span> </span></div>
+      <div class="pricing-per">4-session block · up to 10 athletes</div>
+      <ul class="pricing-features">
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>4 x 90-minute sessions</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Up to 10 athletes</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Full facility access</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Flexible scheduling</li>
+      </ul>
+      <a href="contact.html" class="pricing-cta">Get Started</a>
+    </div>
+    <div class="pricing-card featured">
+      <div class="pricing-badge">Most Popular</div>
+      <div class="pricing-name">Season Pack</div>
+      <p class="pricing-desc">Ongoing training for serious teams building toward competition.</p>
+      <div class="pricing-price">$1,100<span> </span></div>
+      <div class="pricing-per">16-session block · up to 15 athletes</div>
+      <ul class="pricing-features">
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>16 x 90-minute sessions</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Up to 15 athletes</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Full facility + video review</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Individual player reports</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Priority scheduling</li>
+      </ul>
+      <a href="contact.html" class="pricing-cta">Get Started</a>
+    </div>
+    <div class="pricing-card">
+      <div class="pricing-name">Custom</div>
+      <p class="pricing-desc">Have a league, school, or special situation? Let's talk.</p>
+      <div class="pricing-price" style="font-size:36px;padding:8px 0;">Let's<br>Talk</div>
+      <div class="pricing-per">custom sessions · any team size</div>
+      <ul class="pricing-features">
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Fully custom package</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Any group size</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>School & league programs</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Long-term partnerships</li>
+      </ul>
+      <a href="contact.html" class="pricing-cta">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <h2>Ready to level up?</h2>
+  <p>Book your first session at NDO Fitness today.</p>
+  <a href="book.html" class="btn-white">Book a Session</a>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="shared.js"></script>
+</body>
+</html>

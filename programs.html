@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Programs — NDO Fitness</title>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+.programs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:50px;}
+.prog-card{background:#fff;border:1.5px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color 0.2s;}
+.prog-card.featured{border-color:var(--orange);}
+.prog-header{background:var(--bg2);padding:28px 32px;border-bottom:1px solid var(--border);position:relative;}
+.prog-card.featured .prog-header{background:var(--orange-light);}
+.prog-age{font-family:var(--font-display);font-size:72px;color:var(--orange);line-height:1;}
+.prog-title{font-weight:700;font-size:18px;margin-bottom:4px;}
+.prog-subtitle{font-size:13px;color:var(--muted);}
+.prog-badge{position:absolute;top:20px;right:20px;background:var(--orange);color:#fff;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:2px;font-family:var(--font-mono);}
+.prog-body{padding:28px 32px;}
+.prog-desc{font-size:15px;color:var(--muted);line-height:1.75;font-weight:300;margin-bottom:24px;}
+.prog-details{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px;}
+.prog-detail{background:var(--bg2);border-radius:6px;padding:14px 16px;}
+.prog-detail-label{font-size:11px;color:var(--muted2);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+.prog-detail-value{font-size:14px;font-weight:600;}
+.prog-skills{margin-bottom:24px;}
+.prog-skills-title{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-family:var(--font-mono);margin-bottom:12px;}
+.prog-skills-list{display:flex;flex-wrap:wrap;gap:8px;}
+.skill-tag{background:var(--orange-light);color:var(--orange);font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;}
+.prog-footer{display:flex;align-items:center;justify-content:space-between;padding-top:20px;border-top:1px solid var(--border);}
+.prog-price{font-family:var(--font-display);font-size:34px;}
+.prog-price-sub{font-size:12px;color:var(--muted);font-family:var(--font-mono);}
+.prog-btn{background:var(--orange);color:#fff;padding:12px 24px;border-radius:4px;font-size:14px;font-weight:600;text-decoration:none;transition:background 0.2s;}
+.prog-btn:hover{background:var(--orange-dim);}
+@media(max-width:768px){.programs-grid{grid-template-columns:1fr;}.prog-details{grid-template-columns:1fr 1fr;}}
+
+.camps-section{background:var(--bg2);border-top:1px solid var(--border);}
+.camps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:50px;}
+.camp-card{background:#fff;border:1.5px solid var(--border);border-radius:8px;padding:32px;transition:border-color 0.2s;}
+.camp-card.featured{border-color:var(--orange);}
+.camp-icon{width:48px;height:48px;background:var(--orange-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
+.camp-title{font-family:var(--font-display);font-size:28px;margin-bottom:8px;}
+.camp-desc{font-size:14px;color:var(--muted);line-height:1.7;font-weight:300;margin-bottom:20px;}
+.camp-detail-row{display:flex;gap:10px;align-items:center;font-size:13px;color:var(--muted);margin-bottom:8px;font-family:var(--font-mono);}
+.camp-footer{margin-top:24px;padding-top:20px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.camp-price{font-family:var(--font-display);font-size:30px;}
+.camp-price-sub{font-size:12px;color:var(--muted);font-family:var(--font-mono);}
+.camp-register{background:transparent;border:1.5px solid var(--border2);color:var(--text);padding:9px 18px;border-radius:4px;font-size:13px;font-weight:500;cursor:pointer;font-family:var(--font-body);text-decoration:none;transition:all 0.2s;display:inline-block;}
+.camp-register:hover,.camp-card.featured .camp-register{background:var(--orange);border-color:var(--orange);color:#fff;}
+@media(max-width:768px){.camps-grid{grid-template-columns:1fr;}}
+
+.faq-section{border-top:1px solid var(--border);}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:50px;}
+.faq-item{border:1px solid var(--border);border-radius:6px;padding:24px;}
+.faq-q{font-weight:600;font-size:15px;margin-bottom:10px;}
+.faq-a{font-size:14px;color:var(--muted);line-height:1.7;font-weight:300;}
+@media(max-width:768px){.faq-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<div class="page-hero">
+  <div class="page-hero-eyebrow">Skills Programs</div>
+  <h1 class="page-hero-title">Train with a <span>Plan.</span></h1>
+  <p class="page-hero-sub">6-week programs designed to progressively build skills, build confidence, and develop athletes from the ground up — for ages 3 to 16.</p>
+</div>
+
+<section>
+  <div class="section-label">Spring Programs 2025</div>
+  <h2 class="section-title">Find your<br>program.</h2>
+  <p class="section-sub">Each program is age-specific, structured, and designed to be the foundation of a real basketball development journey.</p>
+  <div class="programs-grid">
+
+    <div class="prog-card">
+      <div class="prog-header">
+        <div class="prog-age">Mini</div>
+        <div class="prog-title">Mini Ballers Program</div>
+        <div class="prog-subtitle">Ages 3 – 5 · Introductory level</div>
+      </div>
+      <div class="prog-body">
+        <p class="prog-desc">Designed for the youngest athletes, Mini Ballers introduces basketball through movement, play, and fun. Sessions are short, energetic, and focused on building motor skills and a love for the sport.</p>
+        <div class="prog-details">
+          <div class="prog-detail"><div class="prog-detail-label">Duration</div><div class="prog-detail-value">6 Weeks</div></div>
+          <div class="prog-detail"><div class="prog-detail-label">Days</div><div class="prog-detail-value">Saturdays</div></div>
+          <div class="prog-detail"><div class="prog-detail-label">Time</div><div class="prog-detail-value">9:00 – 10:00 AM</div></div>
+          <div class="prog-detail"><div class="prog-detail-label">Ages</div><div class="prog-detail-value">3 – 5 years</div></div>
+        </div>
+        <div class="prog-skills">
+          <div class="prog-skills-title">Focus Areas</div>
+          <div class="prog-skills-list">
+            <span class="skill-tag">Motor Skills</span><span class="skill-tag">Ball Familiarity</span><span class="skill-tag">Listening</span><span class="skill-tag">Fun</span>
+          </div>
+        </div>
+        <div class="prog-footer">
+          <div><div class="prog-price">$160</div><div class="prog-price-sub">per athlete · 6 weeks</div></div>
+          <a href="book.html" class="prog-btn">Register Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="prog-card featured">
+      <div class="prog-header">
+        <div class="prog-age">U10</div>
+        <div class="prog-title">U10 Skills Program</div>
+        <div class="prog-subtitle">Ages 6 – 9 · Fundamentals level</div>
+        <div class="prog-badge">Sold Out</div>
+      </div>
+      <div class="prog-body">
+        <p class="prog-desc">The U10 program uses basketball fundamentals as an anchor to gradually introduce new skills week over week. Athletes develop dribbling, passing, footwork, and court awareness in a structured environment.</p>
+        <div class="prog-details">
+          <div class="prog-detail"><div class="prog-detail-label">Duration</div><div class="prog-detail-value">6 Weeks</div></div>
+          <div class="prog-detail"><div class="prog-detail-label">Days</div><div class="prog-detail-value">Saturdays</div></div>
+          <div class="prog-detail"><div class="prog-detail-label">Time</div><div class="prog-detail-value">10:00 – 11:30 AM</div></div>
+          <div class="prog-detail"><div class="prog-detail-label">Ages</div><div class="prog-detail-value">6 – 9 years</div></div>
+        </div>
+        <div class="prog-skills">
+          <div class="prog-skills-title">Focus Areas</div>
+          <div class="prog-skills-list">
+            <span class="skill-tag">Dribbling</span><span class="skill-tag">Passing</span><span class="skill-tag">Footwork</span><span class="skill-tag">Court Awareness</span>
+          </div>
+        </div>
+        <div class="prog-footer">
+          <div><div class="prog-price">$180</div><div class="prog-price-sub">per athlete · 6 weeks</div></div>
+          <a href="contact.html" class="prog-btn" style="background:#777;">Join Waitlist</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="prog-card featured">
+      <div class="prog-header">
+        <div class="prog-age">U13</div>
+        <div class="prog-title">U13 Development Program</div>
+        <div class="prog-subtitle">Ages 10 – 12 · Intermediate level</div>
+      </div>
+      <div class="prog-body">
+        <p class="prog-desc">For athletes who have mastered the basics and are ready to compete. The U13 program focuses on ball handling mechanics, shooting, basketball IQ, and competitive play in a structured training environment.</p>
+        <div class="prog-details">
+          <div class="prog-detail"><div class="prog-detail-label">Duration</div><div class="prog-detail-value">6 Weeks</div></div>
+          <div class="prog-detail"><div class="prog-detail-label">Days</div><div class="prog-detail-value">Tue & Thu</div></div>
+          <div class="prog-detail"><div class="prog-detail-label">Time</div><div class="prog-detail-value">5:30 – 7:00 PM</div></div>
+          <div class="prog-detail"><div class="prog-detail-label">Ages</div><div class="prog-detail-value">10 – 12 years</div></div>
+        </div>
+        <div class="prog-skills">
+          <div class="prog-skills-title">Focus Areas</div>
+          <div class="prog-skills-list">
+            <span class="skill-tag">Ball Handling</span><span class="skill-tag">Shooting</span><span class="skill-tag">Defense</span><span class="skill-tag">Basketball IQ</span>
+          </div>
+        </div>
+        <div class="prog-footer">
+          <div><div class="prog-price">$220</div><div class="prog-price-sub">per athlete · 6 weeks</div></div>
+          <a href="book.html" class="prog-btn">Register Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="prog-card">
+      <div class="prog-header">
+        <div class="prog-age">U16</div>
+        <div class="prog-title">U16 Elite Skills Program</div>
+        <div class="prog-subtitle">Ages 13 – 15 · Advanced level</div>
+      </div>
+      <div class="prog-body">
+        <p class="prog-desc">The most advanced program in the NDO lineup. U16 athletes work on position-specific skills, athleticism, and competitive readiness. Designed for athletes who play club or school basketball and want to go to the next level.</p>
+        <div class="prog-details">
+          <div class="prog-detail"><div class="prog-detail-label">Duration</div><div class="prog-detail-value">6 Weeks</div></div>
+          <div class="prog-detail"><div class="prog-detail-label">Days</div><div class="prog-detail-value">Mon & Wed</div></div>
+          <div class="prog-detail"><div class="prog-detail-label">Time</div><div class="prog-detail-value">6:00 – 7:30 PM</div></div>
+          <div class="prog-detail"><div class="prog-detail-label">Ages</div><div class="prog-detail-value">13 – 15 years</div></div>
+        </div>
+        <div class="prog-skills">
+          <div class="prog-skills-title">Focus Areas</div>
+          <div class="prog-skills-list">
+            <span class="skill-tag">Position Skills</span><span class="skill-tag">Athleticism</span><span class="skill-tag">Game Speed</span><span class="skill-tag">Leadership</span>
+          </div>
+        </div>
+        <div class="prog-footer">
+          <div><div class="prog-price">$240</div><div class="prog-price-sub">per athlete · 6 weeks</div></div>
+          <a href="book.html" class="prog-btn">Register Now</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="camps-section">
+  <div class="section-label">Summer 2025</div>
+  <h2 class="section-title">Summer Camps.</h2>
+  <p class="section-sub">Multi-day immersive camps for youth athletes. Full days of training, competition, and community — the ultimate summer basketball experience.</p>
+  <div class="camps-grid">
+    <div class="camp-card">
+      <div class="camp-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div>
+      <div class="camp-title">Junior Camp</div>
+      <p class="camp-desc">For athletes ages 6–10. A 3-day camp built around fun, fundamentals, and friendships. Morning skills sessions, afternoon games, and snacks included.</p>
+      <div class="camp-detail-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>3 Days · July 7–9, 2025</div>
+      <div class="camp-detail-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>9:00 AM – 3:00 PM Daily</div>
+      <div class="camp-detail-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Ages 6 – 10</div>
+      <div class="camp-footer">
+        <div><div class="camp-price">$175</div><div class="camp-price-sub">per athlete · 3 days</div></div>
+        <a href="book.html" class="camp-register">Register</a>
+      </div>
+    </div>
+    <div class="camp-card featured">
+      <div class="camp-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="1.8" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+      <div class="camp-title">Elite Camp</div>
+      <p class="camp-desc">For serious athletes ages 11–15. A full 5-day camp focused on elevating your game. Position training, live scrimmages, and individual film review with Coach Chaz.</p>
+      <div class="camp-detail-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>5 Days · July 14–18, 2025</div>
+      <div class="camp-detail-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>9:00 AM – 4:00 PM Daily</div>
+      <div class="camp-detail-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Ages 11 – 15</div>
+      <div class="camp-footer">
+        <div><div class="camp-price">$299</div><div class="camp-price-sub">per athlete · 5 days</div></div>
+        <a href="book.html" class="camp-register">Register</a>
+      </div>
+    </div>
+    <div class="camp-card">
+      <div class="camp-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="1.8" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="camp-title">Team Camp</div>
+      <p class="camp-desc">Bring your whole team. The 3-day Team Camp is designed for club and school teams looking to build chemistry, run plays, and prepare for the upcoming season together.</p>
+      <div class="camp-detail-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>3 Days · Aug 4–6, 2025</div>
+      <div class="camp-detail-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>10:00 AM – 4:00 PM Daily</div>
+      <div class="camp-detail-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E84F1C" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Any age · min 8 athletes</div>
+      <div class="camp-footer">
+        <div><div class="camp-price">$220</div><div class="camp-price-sub">per athlete · 3 days</div></div>
+        <a href="contact.html" class="camp-register">Inquire</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="section-label">Questions</div>
+  <h2 class="section-title">Program FAQ.</h2>
+  <div class="faq-grid">
+    <div class="faq-item"><div class="faq-q">What should athletes bring to sessions?</div><div class="faq-a">Athletic wear, clean indoor court shoes, and a water bottle. All basketball equipment is provided at the facility.</div></div>
+    <div class="faq-item"><div class="faq-q">What happens if we miss a session?</div><div class="faq-a">We understand life happens. Missed sessions can be made up based on availability — just reach out to us at ndoleague@gmail.com to arrange a makeup.</div></div>
+    <div class="faq-item"><div class="faq-q">Are the programs competitive or recreational?</div><div class="faq-a">Both! Every program is structured to challenge athletes at their level. U10 and Mini Ballers focus on fun and fundamentals, while U13 and U16 introduce more competitive elements.</div></div>
+    <div class="faq-item"><div class="faq-q">How do I register?</div><div class="faq-a">Click the Register button on any program card above and fill out the booking form. We'll confirm your registration within 24 hours and send you details for the first session.</div></div>
+    <div class="faq-item"><div class="faq-q">Is there a waitlist for sold-out programs?</div><div class="faq-a">Yes — if a program shows Sold Out, you can join the waitlist via the Contact page. We run multiple session blocks each season.</div></div>
+    <div class="faq-item"><div class="faq-q">What age is best to start?</div><div class="faq-a">There's no wrong time to start! Our Mini Ballers program starts at age 3, and we've welcomed first-time athletes at every level. Coach Chaz meets every athlete where they are.</div></div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <h2>Ready to register?</h2>
+  <p>Spots fill up fast — secure your athlete's place today.</p>
+  <a href="book.html" class="btn-white">Register Now</a>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="shared.js"></script>
+</body>
+</html>
